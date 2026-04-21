@@ -72,8 +72,10 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
         }
+        
+        /* Updated for perfect center snapping */
         .carousel-item {
-            scroll-snap-align: start;
+            scroll-snap-align: center;
             scroll-snap-stop: always;
         }
 
@@ -108,10 +110,14 @@
     <nav class="fixed top-[8px] md:top-[16px] lg:top-[24px] left-[8px] md:left-[16px] lg:left-[24px] right-[8px] md:right-[16px] lg:right-[24px] bg-white/90 backdrop-blur-md shadow-sm z-50 rounded-b-2xl border-x border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="font-slab text-3xl font-bold tracking-tight">
+                <div class="flex-shrink-0 flex items-center gap-4">
+                    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="font-slab text-4xl sm:text-5xl font-bold tracking-tight">
                         <span class="text-campBlue">BR</span><span class="text-campGreen">AI</span><span class="text-campBlue">N CAMP</span>
                     </a>
+                    <!-- Tagline moved to header -->
+                    <span class="hidden lg:block text-xs font-semibold text-gray-400 uppercase tracking-widest border-l-2 border-gray-200 pl-4 mt-1">
+                        Look Deeper, Think Smarter
+                    </span>
                 </div>
                 
                 <div class="hidden md:flex space-x-8 items-center">
@@ -119,6 +125,7 @@
                     <a href="#itinerary" class="text-gray-600 hover:text-campBlue font-medium transition-colors">Schedule</a>
                     <a href="#register" class="text-gray-600 hover:text-campBlue font-medium transition-colors">Register</a>
                     <a href="#faq" class="text-gray-600 hover:text-campBlue font-medium transition-colors">FAQ</a>
+                    <a href="mailto:brAInCampWA@gmail.com" class="bg-campBlue text-white px-5 py-2 rounded-full font-medium hover:bg-campBlueDark transition-colors shadow-sm">Contact</a>
                 </div>
 
                 <div class="md:hidden flex items-center">
@@ -135,6 +142,7 @@
                 <a href="#itinerary" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-campBlue hover:bg-gray-50 rounded-md">Schedule</a>
                 <a href="#register" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-campBlue hover:bg-gray-50 rounded-md">Register</a>
                 <a href="#faq" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-campBlue hover:bg-gray-50 rounded-md">FAQ</a>
+                <a href="mailto:brAInCampWA@gmail.com" class="block px-3 py-2 text-base font-bold text-campBlue hover:bg-blue-50 rounded-md mt-2">Contact</a>
             </div>
         </div>
     </nav>
@@ -146,14 +154,15 @@
             <div class="absolute top-[20%] -left-[10%] w-[40%] h-[60%] rounded-full bg-green-100/50 blur-3xl"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-campBlue tracking-widest font-semibold text-sm sm:text-base uppercase mb-4">Look Deeper, Think Smarter</h2>
-            <!-- Adjusted font sizes and line breaks for better mobile flow -->
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-slab font-bold text-gray-900 mb-6 leading-snug sm:leading-tight px-2">
-                Unlock the <br class="sm:hidden"><span class="bg-gradient-to-r from-campBlue to-campGreen text-gradient">Secrets</span> of <br>Artificial Intelligence
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-4">
+            
+            <!-- Adjusted font sizes so "Unlock the Secrets of" fits on one line on mobile -->
+            <h1 class="text-3xl min-[400px]:text-4xl sm:text-6xl lg:text-7xl font-slab font-bold text-gray-900 mb-6 leading-snug sm:leading-tight px-1">
+                Unlock the Secrets of <br><span class="bg-gradient-to-r from-campBlue to-campGreen text-gradient">Artificial Intelligence</span>
             </h1>
+            
             <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-                Equip your child with foundational digital literacy this summer. Our hardware-provided camp balances engaging AI education with creative fun in a safe and supportive environment.
+                Equip your child with foundational digital literacy this summer. BrAIn Camp balances engaging AI education with creative fun in a safe and supportive environment.
             </p>
             
             <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
@@ -164,7 +173,7 @@
                     <i data-lucide="calendar" class="w-4 h-4 text-campGreen"></i> Mon-Fri, 9am - 4pm
                 </div>
                 <div class="flex items-center gap-2 bg-gray-50 px-5 py-2.5 rounded-full border border-gray-200 shadow-sm text-gray-700 font-medium text-sm sm:text-base">
-                    <i data-lucide="smartphone" class="w-4 h-4 text-campBlue"></i> Hardware Included
+                    <i data-lucide="smartphone" class="w-4 h-4 text-campBlue"></i> Smartphone-Powered AI
                 </div>
             </div>
 
@@ -195,33 +204,34 @@
                 Swipe for more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </div>
 
-            <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 gap-6 md:gap-8 scroll-pl-4 md:scroll-pl-0 hide-scrollbar">
+            <!-- Added px-[7.5vw] for precise card centering on mobile -->
+            <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-[7.5vw] md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 hide-scrollbar">
                 
-                <!-- Become an AI Explorer -->
-                <div class="carousel-item bg-green-50 rounded-3xl p-8 md:p-10 border border-green-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden">
-                    <div class="absolute top-0 right-0 -mt-4 -mr-4 text-green-200 opacity-20 pointer-events-none">
-                        <i data-lucide="compass" class="w-32 h-32"></i>
+                <!-- Expert Founder (Moved to Position 1) -->
+                <div class="carousel-item bg-amber-50 rounded-3xl p-8 md:p-10 border border-amber-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 text-amber-200 opacity-40 pointer-events-none">
+                        <i data-lucide="award" class="w-32 h-32"></i>
                     </div>
-                    <div class="relative z-10 flex flex-col items-center">
-                        <div class="w-16 h-16 bg-campGreen text-white shadow-sm rounded-2xl flex items-center justify-center mb-6 shrink-0">
-                            <i data-lucide="compass" class="w-8 h-8"></i>
+                    <div class="relative z-10 flex flex-col items-center h-full">
+                        <div class="w-16 h-16 bg-amber-500 text-white shadow-sm rounded-2xl flex items-center justify-center mb-6 shrink-0">
+                            <i data-lucide="award" class="w-8 h-8"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-campGreen mb-3">Become an AI Explorer</h4>
+                        <h4 class="text-xl font-bold text-amber-600 mb-3">Local Founder & Teacher</h4>
                         <p class="text-gray-700 mb-4 leading-relaxed font-medium">
-                            Our mission is to equip students with foundational literacy in AI, prioritizing ethics and environmental impact.
+                            Founded locally by an educator with 12 years of teaching experience.
                         </p>
                         <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                            Step behind the screen of a brand new smartphone and discover how AI actually "thinks." Create digital art and write your own hit songs!
+                            Knowing about tech is one thing, but knowing how to <em>teach</em> it is another! We skip the heavy jargon and focus on making complex concepts fun, safe, and easy for kids to understand.
                         </p>
                     </div>
                 </div>
 
-                <!-- Smart & Secure -->
-                <div class="carousel-item bg-purple-50 rounded-3xl p-8 md:p-10 border border-purple-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden">
+                <!-- Smart & Secure (Position 2) -->
+                <div class="carousel-item bg-purple-50 rounded-3xl p-8 md:p-10 border border-purple-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0">
                     <div class="absolute top-0 right-0 -mt-4 -mr-4 text-purple-200 opacity-40 pointer-events-none">
                         <i data-lucide="smartphone" class="w-32 h-32"></i>
                     </div>
-                    <div class="relative z-10 flex flex-col items-center">
+                    <div class="relative z-10 flex flex-col items-center h-full">
                         <div class="w-16 h-16 bg-purple-600 text-white shadow-sm rounded-2xl flex items-center justify-center mb-6 shrink-0">
                             <i data-lucide="smartphone" class="w-8 h-8"></i>
                         </div>
@@ -235,12 +245,12 @@
                     </div>
                 </div>
 
-                <!-- Safety Protocols -->
-                <div class="carousel-item bg-blue-50 rounded-3xl p-8 md:p-10 border border-blue-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden">
+                <!-- Safety Protocols (Position 3) -->
+                <div class="carousel-item bg-blue-50 rounded-3xl p-8 md:p-10 border border-blue-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0">
                     <div class="absolute top-0 right-0 -mt-4 -mr-4 text-blue-200 opacity-20 pointer-events-none">
                         <i data-lucide="shield-check" class="w-32 h-32"></i>
                     </div>
-                    <div class="relative z-10 flex flex-col items-center">
+                    <div class="relative z-10 flex flex-col items-center h-full">
                         <div class="w-16 h-16 bg-campBlue text-white rounded-2xl flex items-center justify-center mb-6 shadow-md shrink-0">
                             <i data-lucide="shield-check" class="w-8 h-8"></i>
                         </div>
@@ -248,8 +258,27 @@
                         <p class="text-gray-700 leading-relaxed mb-4 font-medium">
                             Students interact with a customized Google Gemini model pre-installed on our devices.
                         </p>
-                        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
                             This allows us to strictly filter content, ensuring students won't access anything inappropriate while they explore.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Critical AI Literacy (Rewritten & Moved to Position 4) -->
+                <div class="carousel-item bg-green-50 rounded-3xl p-8 md:p-10 border border-green-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0">
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 text-green-200 opacity-20 pointer-events-none">
+                        <i data-lucide="lightbulb" class="w-32 h-32"></i>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center h-full">
+                        <div class="w-16 h-16 bg-campGreen text-white shadow-sm rounded-2xl flex items-center justify-center mb-6 shrink-0">
+                            <i data-lucide="lightbulb" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-campGreen mb-3">Critical AI Literacy</h4>
+                        <p class="text-gray-700 mb-4 leading-relaxed font-medium">
+                            We go beyond just showing kids how to use AI—we teach them how to truly understand it.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Students are empowered to spot algorithmic bias, protect their data privacy, and consider the real-world ethical impacts of the technology they use every day.
                         </p>
                     </div>
                 </div>
@@ -273,41 +302,42 @@
                 Swipe for more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </div>
 
-            <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-5 gap-6 scroll-pl-4 md:scroll-pl-0 hide-scrollbar">
+            <!-- Added px-[10vw] for precise card centering on mobile (since width is 80vw) -->
+            <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-[10vw] md:mx-0 md:px-0 md:grid md:grid-cols-5 gap-6 hide-scrollbar items-stretch">
                 <!-- Monday -->
-                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pink-100 to-rose-200 text-pink-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="music" class="w-10 h-10"></i></div>
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pink-100 to-rose-200 text-pink-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0"><i data-lucide="music" class="w-10 h-10"></i></div>
                     <div class="text-sm font-bold text-pink-600 mb-1 uppercase tracking-wide">Monday</div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Text & Tunes</h4>
-                    <p class="text-sm text-gray-600 flex-grow">Crack the code! Discover how AI "brains" actually work and co-write your very own chart-topping hit song.</p>
+                    <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Crack the code! Discover how AI "brains" actually work and co-write your very own chart-topping hit song.</p>
                 </div>
                 <!-- Tuesday -->
-                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-100 to-fuchsia-200 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="wand-2" class="w-10 h-10"></i></div>
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-100 to-fuchsia-200 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0"><i data-lucide="wand-2" class="w-10 h-10"></i></div>
                     <div class="text-sm font-bold text-purple-600 mb-1 uppercase tracking-wide">Tuesday</div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Image Forge</h4>
-                    <p class="text-sm text-gray-600 flex-grow">Conjure epic digital art, battle monsters, and learn the magic of writing the absolute perfect prompt.</p>
+                    <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Conjure epic digital art, battle monsters, and learn the magic of writing the absolute perfect prompt.</p>
                 </div>
                 <!-- Wednesday -->
-                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-100 to-cyan-200 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="clapperboard" class="w-10 h-10"></i></div>
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-100 to-cyan-200 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0"><i data-lucide="clapperboard" class="w-10 h-10"></i></div>
                     <div class="text-sm font-bold text-blue-600 mb-1 uppercase tracking-wide">Wednesday</div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Video & Truth</h4>
-                    <p class="text-sm text-gray-600 flex-grow">Direct AI-generated movies, uncover digital illusions, and learn how to navigate the web to tell fact from AI-generated fiction.</p>
+                    <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Direct AI-generated movies, uncover digital illusions, and learn how to navigate the web to tell fact from AI-generated fiction.</p>
                 </div>
                 <!-- Thursday -->
-                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-100 to-teal-200 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="globe" class="w-10 h-10"></i></div>
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-100 to-teal-200 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0"><i data-lucide="globe" class="w-10 h-10"></i></div>
                     <div class="text-sm font-bold text-emerald-600 mb-1 uppercase tracking-wide">Thursday</div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Tech & Humanity</h4>
-                    <p class="text-sm text-gray-600 flex-grow">Examine the real-world impact of AI! Discuss data ownership, ecological footprints, and how to guide technology toward a fairer future.</p>
+                    <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Examine the real-world impact of AI! Discuss data ownership, ecological footprints, and how to guide technology toward a fairer future.</p>
                 </div>
                 <!-- Friday -->
-                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-100 to-orange-200 text-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="rocket" class="w-10 h-10"></i></div>
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-100 to-orange-200 text-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0"><i data-lucide="rocket" class="w-10 h-10"></i></div>
                     <div class="text-sm font-bold text-amber-600 mb-1 uppercase tracking-wide">Friday</div>
                     <h4 class="text-xl font-bold text-gray-900 mb-3">Capstone</h4>
-                    <p class="text-sm text-gray-600 flex-grow">Show off your new powers! Build, launch, and present your very own ultimate AI masterpiece to the group.</p>
+                    <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Show off your new powers! Build, launch, and present your very own ultimate AI masterpiece to the group.</p>
                 </div>
             </div>
         </div>
@@ -331,84 +361,117 @@
                 Swipe for more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
             </div>
 
-            <div class="carousel-container flex overflow-x-auto pb-10 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 scroll-pl-4 md:scroll-pl-0 hide-scrollbar">
+            <!-- Added px-[7.5vw] for precise card centering on mobile -->
+            <div class="carousel-container flex overflow-x-auto pb-10 -mx-4 px-[7.5vw] md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 hide-scrollbar items-stretch">
                 <!-- Card 1 -->
-                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
                     <div class="bg-gradient-to-r from-campBlue to-blue-400 p-6 text-white text-center">
-                        <div class="text-xs font-bold tracking-widest text-blue-100 uppercase mb-1">Issaquah Area</div>
-                        <h3 class="text-xl font-bold mb-1">Blakely Hall</h3>
-                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> June 22 - 26</p>
+                        <h3 class="text-2xl font-black tracking-tight mb-1">Issaquah Area</h3>
+                        <div class="mb-3">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Blakely+Hall,+Issaquah,+WA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-blue-100 hover:text-white transition-colors group">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">Blakely Hall</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://calendar.google.com/calendar/u/0/r/week/2026/06/22" target="_blank" rel="noopener noreferrer" title="Check your Google Calendar" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-blue-100 hover:text-white transition-colors group">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">June 22 - 26</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative h-full">
                         <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
                             20% OFF
                         </div>
-                        <div class="mb-4 mt-2">
+                        <div class="mb-4 mt-2 flex flex-col justify-center flex-grow">
                             <p class="text-gray-400 line-through text-sm font-medium">$745</p>
                             <p class="text-3xl font-black text-gray-900">$595</p>
                             <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
                         </div>
-                        <a href="https://buy.stripe.com/00waEZcuD3HI2N53yk8k804" target="_blank" rel="noopener noreferrer" class="w-full bg-campBlue text-white py-3 rounded-xl font-bold hover:bg-campBlueDark transition-colors shadow-lg">Register Now</a>
+                        <a href="https://buy.stripe.com/00waEZcuD3HI2N53yk8k804" target="_blank" rel="noopener noreferrer" class="w-full bg-campBlue text-white py-3 rounded-full font-bold hover:bg-campBlueDark transition-colors shadow-lg mt-auto">Register Now</a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
                     <div class="bg-gradient-to-r from-campBlue to-blue-400 p-6 text-white text-center">
-                        <div class="text-xs font-bold tracking-widest text-blue-100 uppercase mb-1">Issaquah Area</div>
-                        <h3 class="text-xl font-bold mb-1">Blakely Hall</h3>
-                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> July 20 - 24</p>
+                        <h3 class="text-2xl font-black tracking-tight mb-1">Issaquah Area</h3>
+                        <div class="mb-3">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Blakely+Hall,+Issaquah,+WA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-blue-100 hover:text-white transition-colors group">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">Blakely Hall</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://calendar.google.com/calendar/u/0/r/week/2026/07/20" target="_blank" rel="noopener noreferrer" title="Check your Google Calendar" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-blue-100 hover:text-white transition-colors group">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">July 20 - 24</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative h-full">
                         <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
                             20% OFF
                         </div>
-                        <div class="mb-4 mt-2">
+                        <div class="mb-4 mt-2 flex flex-col justify-center flex-grow">
                             <p class="text-gray-400 line-through text-sm font-medium">$745</p>
                             <p class="text-3xl font-black text-gray-900">$595</p>
                             <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
                         </div>
-                        <a href="https://buy.stripe.com/cNiaEZ0LVguu9bt1qc8k803" target="_blank" rel="noopener noreferrer" class="w-full bg-campBlue text-white py-3 rounded-xl font-bold hover:bg-campBlueDark transition-colors shadow-lg">Register Now</a>
+                        <a href="https://buy.stripe.com/cNiaEZ0LVguu9bt1qc8k803" target="_blank" rel="noopener noreferrer" class="w-full bg-campBlue text-white py-3 rounded-full font-bold hover:bg-campBlueDark transition-colors shadow-lg mt-auto">Register Now</a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
                     <div class="bg-gradient-to-r from-campGreen to-emerald-400 p-6 text-white text-center">
-                        <div class="text-xs font-bold tracking-widest text-green-100 uppercase mb-1">Bel-Red Area</div>
-                        <h3 class="text-xl font-bold mb-1">BelRed Arts Studio</h3>
-                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> June 29 - July 3</p>
+                        <h3 class="text-2xl font-black tracking-tight mb-1">Bel-Red Area</h3>
+                        <div class="mb-3">
+                            <a href="https://www.google.com/maps/search/?api=1&query=BelRed+Arts+Studio,+Bellevue,+WA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-green-100 hover:text-white transition-colors group">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">BelRed Arts Studio</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://calendar.google.com/calendar/u/0/r/week/2026/06/29" target="_blank" rel="noopener noreferrer" title="Check your Google Calendar" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-green-100 hover:text-white transition-colors group">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">June 29 - July 3</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative h-full">
                         <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
                             20% OFF
                         </div>
-                        <div class="mb-4 mt-2">
+                        <div class="mb-4 mt-2 flex flex-col justify-center flex-grow">
                             <p class="text-gray-400 line-through text-sm font-medium">$745</p>
                             <p class="text-3xl font-black text-gray-900">$595</p>
                             <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
                         </div>
-                        <a href="https://buy.stripe.com/cNicN7eCLfqq4Vd5Gs8k802" target="_blank" rel="noopener noreferrer" class="w-full bg-campGreen text-white py-3 rounded-xl font-bold hover:bg-campGreenDark transition-colors shadow-lg">Register Now</a>
+                        <a href="https://buy.stripe.com/cNicN7eCLfqq4Vd5Gs8k802" target="_blank" rel="noopener noreferrer" class="w-full bg-campGreen text-white py-3 rounded-full font-bold hover:bg-campGreenDark transition-colors shadow-lg mt-auto">Register Now</a>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
                     <div class="bg-gradient-to-r from-campGreen to-emerald-400 p-6 text-white text-center">
-                        <div class="text-xs font-bold tracking-widest text-green-100 uppercase mb-1">Bel-Red Area</div>
-                        <h3 class="text-xl font-bold mb-1">BelRed Arts Studio</h3>
-                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> July 13 - 17</p>
+                        <h3 class="text-2xl font-black tracking-tight mb-1">Bel-Red Area</h3>
+                        <div class="mb-3">
+                            <a href="https://www.google.com/maps/search/?api=1&query=BelRed+Arts+Studio,+Bellevue,+WA" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-green-100 hover:text-white transition-colors group">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">BelRed Arts Studio</span>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="https://calendar.google.com/calendar/u/0/r/week/2026/07/13" target="_blank" rel="noopener noreferrer" title="Check your Google Calendar" class="inline-flex items-center justify-center gap-1.5 text-sm font-medium text-green-100 hover:text-white transition-colors group">
+                                <i data-lucide="calendar" class="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform"></i> <span class="group-hover:underline">July 13 - 17</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative h-full">
                         <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
                             20% OFF
                         </div>
-                        <div class="mb-4 mt-2">
+                        <div class="mb-4 mt-2 flex flex-col justify-center flex-grow">
                             <p class="text-gray-400 line-through text-sm font-medium">$745</p>
                             <p class="text-3xl font-black text-gray-900">$595</p>
                             <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
                         </div>
-                        <a href="https://buy.stripe.com/14A5kF8en2DE73l8SE8k801" target="_blank" rel="noopener noreferrer" class="w-full bg-campGreen text-white py-3 rounded-xl font-bold hover:bg-campGreenDark transition-colors shadow-lg">Register Now</a>
+                        <a href="https://buy.stripe.com/14A5kF8en2DE73l8SE8k801" target="_blank" rel="noopener noreferrer" class="w-full bg-campGreen text-white py-3 rounded-full font-bold hover:bg-campGreenDark transition-colors shadow-lg mt-auto">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -430,7 +493,7 @@
                         <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
                         What age group is this camp for?
                     </h4>
-                    <p class="text-gray-600 pl-7 text-sm md:text-base">BrAIn Camp is designed for students ages 8 to 11. However, if you believe your child would be a great fit (such as a sibling or a gifted student), please email us at <a href="mailto:brAInCampWA@gmail.com" class="text-campBlue font-medium hover:underline">brAInCampWA@gmail.com</a> to discuss!</p>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">BrAIn Camp is designed for students ages 8 to 11. However, if you believe your child would be a great fit (such as a sibling, or a deeply curious and creative student just outside this range), please email us at <a href="mailto:brAInCampWA@gmail.com" class="text-campBlue font-medium hover:underline">brAInCampWA@gmail.com</a> to discuss!</p>
                 </div>
 
                 <div>
@@ -537,7 +600,7 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500 pb-12">
-            &copy; 2024 BrAIn Camp. All rights reserved.
+            &copy; 2026 BrAIn Camp. All rights reserved.
         </div>
     </footer>
 
