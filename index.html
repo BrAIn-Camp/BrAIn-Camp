@@ -2,6 +2,590 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BrAIn Camp | Look Deeper, Think Smarter</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        campBlue: '#2563eb',
+                        campBlueDark: '#1d4ed8',
+                        campGreen: '#00c853',
+                        campGreenDark: '#009624',
+                    },
+                    fontFamily: {
+                        slab: ['"Zilla Slab"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Robust reset to prevent horizontal overflow/zoom on mobile */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html { 
+            scroll-behavior: smooth; 
+        }
+
+        /* Custom gradient text utility */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Hide scrollbar for horizontal scrolling containers */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Essential for mobile horizontal scroll */
+        .carousel-container {
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .carousel-item {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        /* Premium gentle nudge animation */
+        @keyframes swipe-nudge {
+            0%, 100% { transform: translateX(0); }
+            30% { transform: translateX(-20px); }
+        }
+        .animate-swipe-nudge {
+            animation: swipe-nudge 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Ensure fixed border doesn't create extra width */
+        .decorative-border {
+            width: 100vw;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased selection:bg-campGreen selection:text-white">
+
+    <!-- Decorative Gradient Border - Optimized for mobile viewport -->
+    <div class="fixed top-0 left-0 decorative-border z-[100] pointer-events-none border-[8px] md:border-[16px] lg:border-[24px] border-transparent" style="border-image: linear-gradient(to bottom right, #00c853, #2563eb) 1;"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-[8px] md:top-[16px] lg:top-[24px] left-[8px] md:left-[16px] lg:left-[24px] right-[8px] md:right-[16px] lg:right-[24px] bg-white/90 backdrop-blur-md shadow-sm z-50 rounded-b-2xl border-x border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-slab text-3xl font-bold tracking-tight">
+                        <span class="text-campBlue">BR</span><span class="text-campGreen">AI</span><span class="text-campBlue">N CAMP</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-gray-600 hover:text-campBlue font-medium transition-colors">About</a>
+                    <a href="#itinerary" class="text-gray-600 hover:text-campBlue font-medium transition-colors">Schedule</a>
+                    <a href="#register" class="text-gray-600 hover:text-campBlue font-medium transition-colors">Register</a>
+                    <a href="#faq" class="text-gray-600 hover:text-campBlue font-medium transition-colors">FAQ</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-campBlue focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-campBlue hover:bg-gray-50 rounded-md">About</a>
+                <a href="#itinerary" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-campBlue hover:bg-gray-50 rounded-md">Schedule</a>
+                <a href="#register" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-campBlue hover:bg-gray-50 rounded-md">Register</a>
+                <a href="#faq" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-campBlue hover:bg-gray-50 rounded-md">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-white pb-20 pt-32 md:pt-40">
+        <div class="absolute inset-0 -z-10 pointer-events-none">
+            <div class="absolute -top-[20%] -right-[10%] w-[50%] h-[70%] rounded-full bg-blue-100/50 blur-3xl"></div>
+            <div class="absolute top-[20%] -left-[10%] w-[40%] h-[60%] rounded-full bg-green-100/50 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-campBlue tracking-widest font-semibold text-sm sm:text-base uppercase mb-4">Look Deeper, Think Smarter</h2>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-slab font-bold text-gray-900 mb-6 leading-tight">
+                Unlock the <span class="bg-gradient-to-r from-campBlue to-campGreen text-gradient">Secrets</span> of <br class="hidden sm:block">Artificial Intelligence
+            </h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+                Equip your child with foundational digital literacy this summer. Our hardware-provided camp balances engaging AI education with creative fun in a safe and supportive environment.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
+                <div class="flex items-center gap-2 bg-gray-50 px-5 py-2.5 rounded-full border border-gray-200 shadow-sm text-gray-700 font-medium text-sm sm:text-base">
+                    <i data-lucide="users" class="w-4 h-4 text-campBlue"></i> Ages 8-11
+                </div>
+                <div class="flex items-center gap-2 bg-gray-50 px-5 py-2.5 rounded-full border border-gray-200 shadow-sm text-gray-700 font-medium text-sm sm:text-base">
+                    <i data-lucide="calendar" class="w-4 h-4 text-campGreen"></i> Mon-Fri, 9am - 4pm
+                </div>
+                <div class="flex items-center gap-2 bg-gray-50 px-5 py-2.5 rounded-full border border-gray-200 shadow-sm text-gray-700 font-medium text-sm sm:text-base">
+                    <i data-lucide="smartphone" class="w-4 h-4 text-campBlue"></i> Hardware Included
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="scrollToSection('#about')" class="bg-campBlue hover:bg-campBlueDark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all shadow-xl shadow-blue-500/30 flex items-center justify-center gap-2 group">
+                    Learn More <i data-lucide="arrow-down" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                </button>
+                <button onclick="scrollToSection('#register')" class="bg-white border-2 border-campBlue text-campBlue hover:bg-blue-50 px-8 py-4 rounded-full text-lg font-semibold transition-all flex items-center justify-center gap-2">
+                    View Summer Sessions
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+            
+            <!-- Restored and Enhanced Section Heading -->
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-4xl sm:text-5xl font-slab font-bold text-gray-900 uppercase tracking-wide">
+                    What Makes Us <span class="text-campBlue">Different</span>
+                </h2>
+            </div>
+
+            <!-- Swipe Hint for Mobile -->
+            <div class="md:hidden flex items-center justify-end text-sm text-campBlue font-medium mb-3 pr-2 animate-pulse">
+                Swipe for more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </div>
+
+            <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-3 gap-6 md:gap-8 scroll-pl-4 md:scroll-pl-0 hide-scrollbar">
+                
+                <!-- Become an AI Explorer -->
+                <div class="carousel-item bg-green-50 rounded-3xl p-8 md:p-10 border border-green-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden">
+                    <!-- Background Watermark -->
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 text-green-200 opacity-20 pointer-events-none">
+                        <i data-lucide="compass" class="w-32 h-32"></i>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-campGreen text-white shadow-sm rounded-2xl flex items-center justify-center mb-6 shrink-0">
+                            <i data-lucide="compass" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-campGreen mb-3">Become an AI Explorer</h4>
+                        <p class="text-gray-700 mb-4 leading-relaxed font-medium">
+                            Our mission is to equip students with foundational literacy in AI, prioritizing ethics and environmental impact.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Step behind the screen of a brand new smartphone and discover how AI actually "thinks." Create digital art and write your own hit songs!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Smart & Secure -->
+                <div class="carousel-item bg-purple-50 rounded-3xl p-8 md:p-10 border border-purple-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden">
+                    <!-- Background Watermark -->
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 text-purple-200 opacity-40 pointer-events-none">
+                        <i data-lucide="smartphone" class="w-32 h-32"></i>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-purple-600 text-white shadow-sm rounded-2xl flex items-center justify-center mb-6 shrink-0">
+                            <i data-lucide="smartphone" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-purple-700 mb-3">Smart & Secure Learning</h4>
+                        <p class="text-gray-600 mb-4 leading-relaxed font-medium">
+                            By utilizing familiar mobile devices, our program capitalizes on how kids already interact with tech to maximize learning.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            Instruction is delivered using program-provided smartphones running a dynamic, gamified quiz platform for real-time engagement.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Safety Protocols -->
+                <div class="carousel-item bg-blue-50 rounded-3xl p-8 md:p-10 border border-blue-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden">
+                    <!-- Background Watermark -->
+                    <div class="absolute top-0 right-0 -mt-4 -mr-4 text-blue-200 opacity-20 pointer-events-none">
+                        <i data-lucide="shield-check" class="w-32 h-32"></i>
+                    </div>
+                    <div class="relative z-10 flex flex-col items-center">
+                        <div class="w-16 h-16 bg-campBlue text-white rounded-2xl flex items-center justify-center mb-6 shadow-md shrink-0">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-campBlue mb-3">Unmatched Safety</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4 font-medium">
+                            Students interact with a customized Google Gemini model pre-installed on our devices.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+                            This allows us to strictly filter content, ensuring students won't access anything inappropriate while they explore.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinerary Section (Placed before Registration) -->
+    <section id="itinerary" class="bg-gray-50 py-16 md:py-20 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+            <h2 class="text-4xl sm:text-5xl font-slab font-bold text-gray-900 mb-4 uppercase tracking-wide">
+                A Sneak Peek At Your <span class="text-campBlue">AI Adventure!</span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 md:mb-12">
+                Get ready for five action-packed days of digital discovery! From co-writing hit songs to generating epic digital art, every single day unlocks a completely new AI superpower.
+            </p>
+
+            <!-- Swipe Hint for Mobile -->
+            <div class="md:hidden flex items-center justify-end text-sm text-campBlue font-medium mb-3 pr-2 animate-pulse">
+                Swipe for more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </div>
+
+            <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-5 gap-6 scroll-pl-4 md:scroll-pl-0 hide-scrollbar">
+                <!-- Monday -->
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pink-100 to-rose-200 text-pink-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="music" class="w-10 h-10"></i></div>
+                    <div class="text-sm font-bold text-pink-600 mb-1 uppercase tracking-wide">Monday</div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Text & Tunes</h4>
+                    <p class="text-sm text-gray-600 flex-grow">Crack the code! Discover how AI "brains" actually work and co-write your very own chart-topping hit song.</p>
+                </div>
+                <!-- Tuesday -->
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-100 to-fuchsia-200 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="wand-2" class="w-10 h-10"></i></div>
+                    <div class="text-sm font-bold text-purple-600 mb-1 uppercase tracking-wide">Tuesday</div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Image Forge</h4>
+                    <p class="text-sm text-gray-600 flex-grow">Conjure epic digital art, battle monsters, and learn the magic of writing the absolute perfect prompt.</p>
+                </div>
+                <!-- Wednesday -->
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-100 to-cyan-200 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="clapperboard" class="w-10 h-10"></i></div>
+                    <div class="text-sm font-bold text-blue-600 mb-1 uppercase tracking-wide">Wednesday</div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Video & Truth</h4>
+                    <p class="text-sm text-gray-600 flex-grow">Direct AI-generated movies, uncover digital illusions, and learn how to navigate the web to tell fact from AI-generated fiction.</p>
+                </div>
+                <!-- Thursday -->
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-100 to-teal-200 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="globe" class="w-10 h-10"></i></div>
+                    <div class="text-sm font-bold text-emerald-600 mb-1 uppercase tracking-wide">Thursday</div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Tech & Humanity</h4>
+                    <p class="text-sm text-gray-600 flex-grow">Examine the real-world impact of AI! Discuss data ownership, ecological footprints, and how to guide technology toward a fairer future.</p>
+                </div>
+                <!-- Friday -->
+                <div class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full group hover:-translate-y-1.5 hover:shadow-lg transition-all duration-300 cursor-default">
+                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-100 to-orange-200 text-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300"><i data-lucide="rocket" class="w-10 h-10"></i></div>
+                    <div class="text-sm font-bold text-amber-600 mb-1 uppercase tracking-wide">Friday</div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Capstone</h4>
+                    <p class="text-sm text-gray-600 flex-grow">Show off your new powers! Build, launch, and present your very own ultimate AI masterpiece to the group.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="bg-white py-16 md:py-20 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-4xl font-slab font-bold text-gray-900 mb-4">Select Your Session</h2>
+                <p class="text-lg text-gray-600 mb-4">Class sizes are limited to ensure a high-quality experience. Secure your spot today!</p>
+                
+                <!-- Early Registration Sale Banner -->
+                <div class="inline-flex items-center justify-center gap-2 bg-red-50 border border-red-100 text-red-600 px-5 py-2.5 rounded-full text-sm font-bold shadow-sm">
+                    <i data-lucide="tag" class="w-4 h-4"></i>
+                    Register now to lock in our 20% early registration discount!
+                </div>
+            </div>
+
+            <!-- Swipe Hint for Mobile -->
+            <div class="md:hidden flex items-center justify-end text-sm text-campBlue font-medium mb-3 pr-2 animate-pulse">
+                Swipe for more <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+            </div>
+
+            <div class="carousel-container flex overflow-x-auto pb-10 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 scroll-pl-4 md:scroll-pl-0 hide-scrollbar">
+                <!-- Card 1 -->
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                    <div class="bg-gradient-to-r from-campBlue to-blue-400 p-6 text-white text-center">
+                        <div class="text-xs font-bold tracking-widest text-blue-100 uppercase mb-1">Issaquah Area</div>
+                        <h3 class="text-xl font-bold mb-1">Blakely Hall</h3>
+                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> June 22 - 26</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                        <!-- Floating Sticker -->
+                        <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
+                            20% OFF
+                        </div>
+                        <div class="mb-4 mt-2">
+                            <p class="text-gray-400 line-through text-sm font-medium">$745</p>
+                            <p class="text-3xl font-black text-gray-900">$595</p>
+                            <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
+                        </div>
+                        <a href="https://buy.stripe.com/00waEZcuD3HI2N53yk8k804" target="_blank" rel="noopener noreferrer" class="w-full bg-campBlue text-white py-3 rounded-xl font-bold hover:bg-campBlueDark transition-colors shadow-lg">Register Now</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                    <div class="bg-gradient-to-r from-campBlue to-blue-400 p-6 text-white text-center">
+                        <div class="text-xs font-bold tracking-widest text-blue-100 uppercase mb-1">Issaquah Area</div>
+                        <h3 class="text-xl font-bold mb-1">Blakely Hall</h3>
+                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> July 20 - 24</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                        <!-- Floating Sticker -->
+                        <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
+                            20% OFF
+                        </div>
+                        <div class="mb-4 mt-2">
+                            <p class="text-gray-400 line-through text-sm font-medium">$745</p>
+                            <p class="text-3xl font-black text-gray-900">$595</p>
+                            <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
+                        </div>
+                        <a href="https://buy.stripe.com/cNiaEZ0LVguu9bt1qc8k803" target="_blank" rel="noopener noreferrer" class="w-full bg-campBlue text-white py-3 rounded-xl font-bold hover:bg-campBlueDark transition-colors shadow-lg">Register Now</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                    <div class="bg-gradient-to-r from-campGreen to-emerald-400 p-6 text-white text-center">
+                        <div class="text-xs font-bold tracking-widest text-green-100 uppercase mb-1">Bel-Red Area</div>
+                        <h3 class="text-xl font-bold mb-1">BelRed Arts Studio</h3>
+                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> June 29 - July 3</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                        <!-- Floating Sticker -->
+                        <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
+                            20% OFF
+                        </div>
+                        <div class="mb-4 mt-2">
+                            <p class="text-gray-400 line-through text-sm font-medium">$745</p>
+                            <p class="text-3xl font-black text-gray-900">$595</p>
+                            <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
+                        </div>
+                        <a href="https://buy.stripe.com/cNicN7eCLfqq4Vd5Gs8k802" target="_blank" rel="noopener noreferrer" class="w-full bg-campGreen text-white py-3 rounded-xl font-bold hover:bg-campGreenDark transition-colors shadow-lg">Register Now</a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none">
+                    <div class="bg-gradient-to-r from-campGreen to-emerald-400 p-6 text-white text-center">
+                        <div class="text-xs font-bold tracking-widest text-green-100 uppercase mb-1">Bel-Red Area</div>
+                        <h3 class="text-xl font-bold mb-1">BelRed Arts Studio</h3>
+                        <p class="text-sm flex items-center justify-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> July 13 - 17</p>
+                    </div>
+                    <div class="p-6 bg-gray-50 flex-grow flex flex-col justify-between items-center text-center relative">
+                        <!-- Floating Sticker -->
+                        <div class="absolute -top-4 right-4 bg-red-500 text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-lg transform rotate-3 border-2 border-white z-10">
+                            20% OFF
+                        </div>
+                        <div class="mb-4 mt-2">
+                            <p class="text-gray-400 line-through text-sm font-medium">$745</p>
+                            <p class="text-3xl font-black text-gray-900">$595</p>
+                            <p class="text-xs text-red-500 font-bold mt-1 uppercase tracking-wider">Early Registration</p>
+                        </div>
+                        <a href="https://buy.stripe.com/14A5kF8en2DE73l8SE8k801" target="_blank" rel="noopener noreferrer" class="w-full bg-campGreen text-white py-3 rounded-xl font-bold hover:bg-campGreenDark transition-colors shadow-lg">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 md:py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-slab font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600">Common inquiries from parents.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16">
+                <!-- FAQ Item 1 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        How does the camp address AI's impact on human artists and copyright?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">We center the rights of creators. During our Image Forge day, we critically examine how AI models are trained and discuss the importance of consent, copyright, and fair compensation for artists.</p>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        Does the program cover the environmental impact of AI?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">Yes. Training and running AI requires data centers that consume significant amounts of energy and water. We discuss this ecological cost, teaching students about the carbon footprint of digital tools and the need for climate-conscious technology.</p>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        How do you handle algorithmic bias and the ethical challenges of AI?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">We believe critical education is essential. We aren't teaching kids to blindly consume AI; we equip them with the digital literacy to spot algorithmic bias, understand data privacy, and ask important questions about how these technologies affect society.</p>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        What age group is this camp for?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">BrAIn Camp is specifically designed for students ages 8 to 11. However, if you believe your child would be a great fit outside of this range (such as an older/younger sibling or a gifted student), please reach out to us at <a href="mailto:brAInCampWA@gmail.com" class="text-campBlue font-medium hover:underline">brAInCampWA@gmail.com</a> to discuss!</p>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        Does my child need to bring a phone or laptop?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">No! Instruction is delivered using secure, program-provided smartphones. All necessary technology is included in the tuition fee.</p>
+                </div>
+                <!-- FAQ Item 6 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        How do you ensure screen safety?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">Safety is our top priority. Students interact with a customized AI model in a completely controlled environment. Our provided devices enforce strict behavioral and content filters to ensure students won't access anything inappropriate.</p>
+                </div>
+                <!-- FAQ Item 7 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        What are the daily hours?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">Our full-day sessions run Monday through Friday, from 9:00 AM to 4:00 PM.</p>
+                </div>
+                <!-- FAQ Item 8 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        Do you offer scholarships or financial aid?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">We believe every child should have the opportunity to develop digital literacy. If you are struggling financially, please reach out to us at <a href="mailto:brAInCampWA@gmail.com" class="text-campBlue font-medium hover:underline">brAInCampWA@gmail.com</a> to discuss scholarship options and partial tuition waivers.</p>
+                </div>
+                <!-- FAQ Item 9 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        What should my camper bring?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">Please pack a daily snack, a water bottle, and a lunch for your child. All tech tools and camp materials are provided.</p>
+                </div>
+                <!-- FAQ Item 10 -->
+                <div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
+                        <i data-lucide="help-circle" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
+                        Who do I contact if I have more questions?
+                    </h4>
+                    <p class="text-gray-600 pl-7 text-sm md:text-base">You can reach out to us anytime at <a href="mailto:brAInCampWA@gmail.com" class="text-campBlue font-medium hover:underline">brAInCampWA@gmail.com</a>.</p>
+                </div>
+            </div>
+
+            <!-- Final CTA Button -->
+            <div class="text-center border-t border-gray-200 pt-16">
+                <button onclick="scrollToSection('#register')" class="inline-flex items-center gap-3 bg-gradient-to-r from-campBlue to-campBlueDark text-white px-10 py-5 rounded-full text-xl font-bold transition-all shadow-2xl shadow-blue-500/40 hover:scale-105 active:scale-95">
+                    Pick a Session <i data-lucide="arrow-up" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16 border-t-8 border-campBlue">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-slab text-2xl font-bold tracking-tight">
+                <span class="text-white">BR</span><span class="text-campGreen">AI</span><span class="text-white">N CAMP</span>
+            </div>
+            <div class="text-center md:text-right">
+                <a href="mailto:brAInCampWA@gmail.com" class="text-lg font-medium hover:text-campGreen transition-colors flex items-center justify-center md:justify-end gap-2">
+                    <i data-lucide="mail" class="w-5 h-5"></i> brAInCampWA@gmail.com
+                </a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-500 pb-12">
+            &copy; 2024 BrAIn Camp. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => menu.classList.add('hidden')));
+
+        // Smooth Scroll Helper
+        function scrollToSection(id) {
+            const el = document.querySelector(id);
+            if (el) {
+                // Get navbar height to offset properly
+                const offset = 100;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = el.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Apply smooth scroll helper to all internal anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                scrollToSection(this.getAttribute('href'));
+            });
+        });
+
+        // Horizontal Swipe Hint Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && window.innerWidth < 768 && !entry.target.dataset.nudged) {
+                    entry.target.dataset.nudged = "true";
+                    setTimeout(() => {
+                        entry.target.classList.add('animate-swipe-nudge');
+                        setTimeout(() => entry.target.classList.remove('animate-swipe-nudge'), 700);
+                    }, 800);
+                }
+            });
+        }, { threshold: 0.5 });
+        document.querySelectorAll('.carousel-container').forEach(c => observer.observe(c));
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrAIn Camp | Look Deeper, Think Smarter</title>
     
