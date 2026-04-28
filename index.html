@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123934370"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18123934370');
+    </script>
+
     <!-- Phase 1: Optimal Tag Ordering (Immediately after charset) -->
     <title>AI Summer Camps in Issaquah & Bellevue | BrAIn Camp</title>
     <meta name="description" content="Experience top-rated AI summer camps and tech programs loved by parents and kids in Issaquah, Redmond, & Bellevue. Join BrAIn Camp today!">
@@ -272,7 +282,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex-shrink-0 flex items-center gap-4">
-                    <a href="#" aria-label="Brain Camp Home" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="font-slab text-4xl sm:text-5xl font-bold tracking-tight">
+                    <a href="#" aria-label="Brain Camp Home" class="font-slab text-4xl sm:text-5xl font-bold tracking-tight">
                         <span class="text-campBlue">BR</span><span class="text-campGreen">AI</span><span class="text-campBlue">N CAMP</span>
                     </a>
                     <!-- Tagline moved to header -->
@@ -322,7 +332,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-4">
                 
                 <!-- Strict Hierarchy: Sole H1 Tag -->
-                <h1 id="hero-title" class="text-3xl min-[400px]:text-4xl sm:text-6xl lg:text-7xl font-slab font-bold text-gray-900 mb-6 leading-snug sm:leading-tight px-1">
+                <h1 id="hero-title" class="text-4xl sm:text-6xl lg:text-8xl xl:text-[6.5rem] font-slab font-bold text-gray-900 mb-6 leading-tight lg:leading-none px-1 tracking-tight">
                     Discover the World of <br><span class="bg-gradient-to-r from-campBlue to-campGreen text-gradient">Artificial Intelligence</span>
                 </h1>
                 
@@ -371,10 +381,10 @@
                 </div>
 
                 <!-- Semantic ARIA Role for Carousels -->
-                <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-[7.5vw] md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 hide-scrollbar" role="region" aria-label="About features carousel">
+                <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-[7.5vw] md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 hide-scrollbar items-stretch" role="region" aria-label="About features carousel">
                     
                     <!-- Expert Founder -->
-                    <article class="carousel-item bg-amber-50 rounded-3xl p-8 md:p-10 border border-amber-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0" role="group" aria-label="Feature: Local Founder">
+                    <article class="carousel-item bg-amber-50 rounded-3xl p-8 md:p-10 border border-amber-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden h-full" role="group" aria-label="Feature: Local Founder">
                         <div class="absolute top-0 right-0 -mt-4 -mr-4 text-amber-200 opacity-40 pointer-events-none" aria-hidden="true">
                             <i data-lucide="award" class="w-32 h-32"></i>
                         </div>
@@ -394,7 +404,7 @@
                     </article>
 
                     <!-- Smart & Secure -->
-                    <article class="carousel-item bg-purple-50 rounded-3xl p-8 md:p-10 border border-purple-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0" role="group" aria-label="Feature: Smart & Secure Learning">
+                    <article class="carousel-item bg-purple-50 rounded-3xl p-8 md:p-10 border border-purple-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden h-full" role="group" aria-label="Feature: Smart & Secure Learning">
                         <div class="absolute top-0 right-0 -mt-4 -mr-4 text-purple-200 opacity-40 pointer-events-none" aria-hidden="true">
                             <i data-lucide="smartphone" class="w-32 h-32"></i>
                         </div>
@@ -413,7 +423,7 @@
                     </article>
 
                     <!-- Safety Protocols -->
-                    <article class="carousel-item bg-blue-50 rounded-3xl p-8 md:p-10 border border-blue-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0" role="group" aria-label="Feature: Unmatched Safety">
+                    <article class="carousel-item bg-blue-50 rounded-3xl p-8 md:p-10 border border-blue-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden h-full" role="group" aria-label="Feature: Unmatched Safety">
                         <div class="absolute top-0 right-0 -mt-4 -mr-4 text-blue-200 opacity-20 pointer-events-none" aria-hidden="true">
                             <i data-lucide="shield-check" class="w-32 h-32"></i>
                         </div>
@@ -432,7 +442,7 @@
                     </article>
 
                     <!-- Critical AI Literacy -->
-                    <article class="carousel-item bg-green-50 rounded-3xl p-8 md:p-10 border border-green-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden min-h-[55vh] md:min-h-0" role="group" aria-label="Feature: Critical AI Literacy">
+                    <article class="carousel-item bg-green-50 rounded-3xl p-8 md:p-10 border border-green-200 shadow-sm w-[85vw] max-w-[350px] shrink-0 md:w-auto md:max-w-none flex flex-col items-center text-center relative overflow-hidden h-full" role="group" aria-label="Feature: Critical AI Literacy">
                         <div class="absolute top-0 right-0 -mt-4 -mr-4 text-green-200 opacity-20 pointer-events-none" aria-hidden="true">
                             <i data-lucide="lightbulb" class="w-32 h-32"></i>
                         </div>
@@ -471,35 +481,35 @@
 
                 <div class="carousel-container flex overflow-x-auto pb-8 -mx-4 px-[10vw] md:mx-0 md:px-0 md:grid md:grid-cols-5 gap-6 hide-scrollbar items-stretch" role="region" aria-label="Daily Schedule">
                     <!-- Monday -->
-                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full">
                         <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pink-100 to-rose-200 text-pink-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0" aria-hidden="true"><i data-lucide="music" class="w-10 h-10"></i></div>
                         <div class="text-sm font-bold text-pink-600 mb-1 uppercase tracking-wide">Monday</div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Text & Tunes</h3>
                         <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Crack the code! Discover how AI "brains" actually work and co-write your very own chart-topping hit song.</p>
                     </article>
                     <!-- Tuesday -->
-                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full">
                         <div class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-100 to-fuchsia-200 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0" aria-hidden="true"><i data-lucide="wand-2" class="w-10 h-10"></i></div>
                         <div class="text-sm font-bold text-purple-600 mb-1 uppercase tracking-wide">Tuesday</div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Image Forge</h3>
                         <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Conjure epic digital art, battle monsters, and learn the magic of writing the absolute perfect prompt.</p>
                     </article>
                     <!-- Wednesday -->
-                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full">
                         <div class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-100 to-cyan-200 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0" aria-hidden="true"><i data-lucide="clapperboard" class="w-10 h-10"></i></div>
                         <div class="text-sm font-bold text-blue-600 mb-1 uppercase tracking-wide">Wednesday</div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Video & Truth</h3>
                         <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Direct AI-generated movies, uncover digital illusions, and learn how to navigate the web to tell fact from AI-generated fiction.</p>
                     </article>
                     <!-- Thursday -->
-                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full">
                         <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-100 to-teal-200 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0" aria-hidden="true"><i data-lucide="globe" class="w-10 h-10"></i></div>
                         <div class="text-sm font-bold text-emerald-600 mb-1 uppercase tracking-wide">Thursday</div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Tech & Humanity</h3>
                         <p class="text-sm text-gray-600 flex-grow flex items-center justify-center">Examine the real-world impact of AI! Discuss data ownership, ecological footprints, and how to guide technology toward a fairer future.</p>
                     </article>
                     <!-- Friday -->
-                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-2xl p-6 shadow-sm border border-gray-100 w-[80vw] max-w-[300px] shrink-0 md:w-auto md:max-w-none flex flex-col h-full">
                         <div class="w-20 h-20 mx-auto bg-gradient-to-br from-amber-100 to-orange-200 text-amber-600 rounded-2xl flex items-center justify-center mb-6 shadow-inner shrink-0" aria-hidden="true"><i data-lucide="rocket" class="w-10 h-10"></i></div>
                         <div class="text-sm font-bold text-amber-600 mb-1 uppercase tracking-wide">Friday</div>
                         <h3 class="text-xl font-bold text-gray-900 mb-3">Capstone</h3>
@@ -529,7 +539,7 @@
 
                 <div class="carousel-container flex overflow-x-auto pb-10 -mx-4 px-[7.5vw] md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 hide-scrollbar items-stretch" role="region" aria-label="Available camp sessions">
                     <!-- Card 1 -->
-                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none h-full">
                         <div class="bg-gradient-to-r from-campBlue to-blue-400 p-6 text-white text-center">
                             <!-- Fixed H3 hierarchy -->
                             <h3 class="text-2xl font-black tracking-tight mb-1">Issaquah Area</h3>
@@ -558,7 +568,7 @@
                     </article>
 
                     <!-- Card 2 -->
-                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none h-full">
                         <div class="bg-gradient-to-r from-campBlue to-blue-400 p-6 text-white text-center">
                             <h3 class="text-2xl font-black tracking-tight mb-1">Issaquah Area</h3>
                             <div class="mb-3">
@@ -586,7 +596,7 @@
                     </article>
 
                     <!-- Card 3 -->
-                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none h-full">
                         <div class="bg-gradient-to-r from-campGreen to-emerald-400 p-6 text-white text-center">
                             <h3 class="text-2xl font-black tracking-tight mb-1">Bel-Red Area</h3>
                             <div class="mb-3">
@@ -614,7 +624,7 @@
                     </article>
 
                     <!-- Card 4 -->
-                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none min-h-[55vh] md:min-h-0">
+                    <article class="carousel-item bg-white rounded-3xl border border-gray-200 shadow-lg overflow-hidden flex flex-col w-[85vw] max-w-[340px] shrink-0 md:w-auto md:max-w-none h-full">
                         <div class="bg-gradient-to-r from-campGreen to-emerald-400 p-6 text-white text-center">
                             <h3 class="text-2xl font-black tracking-tight mb-1">Bel-Red Area</h3>
                             <div class="mb-3">
@@ -812,7 +822,12 @@
                 // Prevent default jump, except for the new accessibility skip link
                 if(!this.classList.contains('sr-only')) {
                     e.preventDefault();
-                    scrollToSection(this.getAttribute('href'));
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        scrollToSection(targetId);
+                    }
                 }
             });
         });
