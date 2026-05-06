@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123934370"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X3MSVGKPEB"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      gtag('config', 'G-X3MSVGKPEB');
       gtag('config', 'AW-18123934370');
     </script>
 
@@ -94,10 +95,21 @@
         "@context": "https://schema.org",
         "@type": "Event",
         "name": "BrAIn Camp AI Summer Camp - Issaquah Session 1",
+        "description": "A 5-day intensive artificial intelligence summer camp for kids ages 8-11 in Issaquah, WA. Students learn digital literacy, prompt engineering, and tech ethics.",
+        "image": "https://braincamp.com/assets/images/ai-coding-camp.jpg",
         "startDate": "2026-06-22T09:00:00-08:00",
         "endDate": "2026-06-26T16:00:00-08:00",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "eventStatus": "https://schema.org/EventScheduled",
+        "organizer": {
+          "@type": "Organization",
+          "name": "BRAIN CAMP LLC",
+          "url": "https://braincamp.com"
+        },
+        "performer": {
+          "@type": "Organization",
+          "name": "BRAIN CAMP LLC"
+        },
         "location": {
           "@type": "Place",
           "name": "Blakely Hall",
@@ -112,17 +124,29 @@
           "url": "https://buy.stripe.com/00waEZcuD3HI2N53yk8k804",
           "price": "595.00",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2026-01-01T00:00:00-08:00"
         }
       },
       {
         "@context": "https://schema.org",
         "@type": "Event",
         "name": "BrAIn Camp AI Summer Camp - Bel-Red Session 1",
+        "description": "A 5-day intensive artificial intelligence summer camp for kids ages 8-11 in Bellevue, WA. Students learn digital literacy, prompt engineering, and tech ethics.",
+        "image": "https://braincamp.com/assets/images/ai-coding-camp.jpg",
         "startDate": "2026-06-29T09:00:00-08:00",
         "endDate": "2026-07-03T16:00:00-08:00",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
         "eventStatus": "https://schema.org/EventScheduled",
+        "organizer": {
+          "@type": "Organization",
+          "name": "BRAIN CAMP LLC",
+          "url": "https://braincamp.com"
+        },
+        "performer": {
+          "@type": "Organization",
+          "name": "BRAIN CAMP LLC"
+        },
         "location": {
           "@type": "Place",
           "name": "BelRed Arts Studio",
@@ -137,7 +161,8 @@
           "url": "https://buy.stripe.com/cNicN7eCLfqq4Vd5Gs8k802",
           "price": "595.00",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
+          "availability": "https://schema.org/InStock",
+          "validFrom": "2026-01-01T00:00:00-08:00"
         }
       },
       {
@@ -651,6 +676,13 @@
                         </div>
                     </article>
                 </div>
+                
+                <div class="mt-8 md:mt-10 text-center flex justify-center px-4">
+                    <a href="mailto:brAInCampWA@gmail.com?subject=Inquiry%20about%20Flexible%20Pricing%20and%20Scholarships" class="inline-flex items-center gap-2.5 text-sm md:text-base font-semibold text-campBlue bg-blue-50 hover:bg-blue-100 px-6 py-3 rounded-full transition-all shadow-sm hover:shadow group">
+                        <i data-lucide="heart-handshake" aria-hidden="true" class="w-5 h-5 group-hover:scale-110 transition-transform"></i>
+                        <span>Need flexible pricing? Ask us about community scholarships.</span>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -710,7 +742,7 @@
                     <article>
                         <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
                             <i data-lucide="help-circle" aria-hidden="true" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
-                            Will this encourage my child to use AI for cheating in school?
+                            Will this encourage my child to use AI to complete their school assignments?
                         </h3>
                         <p class="text-gray-600 pl-7 text-sm md:text-base">We take academic integrity seriously. Our curriculum teaches AI as a "brainstorming partner" or "learning assistant," not a replacement for unique thought. We emphasize that over-reliance on AI can hinder their own voice and critical thinking skills.</p>
                     </article>
@@ -740,7 +772,7 @@
                     </article>
 
                     <!-- Section 3: Financing & Contact -->
-                    <article>
+                    <article id="faq-scholarships" class="scroll-mt-28">
                         <h3 class="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
                             <i data-lucide="help-circle" aria-hidden="true" class="text-campBlue w-5 h-5 mt-0.5 shrink-0"></i> 
                             Do you offer scholarships or financial aid?
