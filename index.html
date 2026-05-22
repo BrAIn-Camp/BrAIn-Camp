@@ -355,40 +355,77 @@
                 <div class="absolute top-[20%] -left-[10%] w-[40%] h-[60%] rounded-full bg-green-100/50 blur-3xl"></div>
             </div>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 text-center">
                 
-                <!-- Flex layout on mobile strictly enforces separate spaces for text and sticker -->
-                <div class="flex flex-row items-start justify-between gap-4 md:block text-left md:text-center">
-                    
-                    <!-- Text Area (Takes up remaining space, naturally wrapping if needed) -->
-                    <div class="flex-1 min-w-0">
-                        <h1 id="hero-title" class="text-[14vw] sm:text-[12vw] md:text-[9vw] lg:text-[9rem] xl:text-[11.5rem] font-slab font-black text-gray-900 mb-4 md:mb-6 leading-[1] md:leading-[0.9] tracking-tighter break-words">
-                            <span class="block">Become an</span>
-                            <span class="block bg-gradient-to-r from-campBlue to-campGreen text-gradient pb-2 lg:pb-4">AI Explorer!</span>
-                        </h1>
-                    </div>
-
-                    <!-- Yard Sign Circular Sticker -->
-                    <div class="shrink-0 w-24 h-24 sm:w-28 sm:h-28 md:absolute md:-top-12 md:right-12 lg:right-32 md:w-40 md:h-40 bg-white rounded-full border-[5px] md:border-[10px] border-campGreen flex flex-col items-center justify-center transform rotate-12 shadow-xl z-10 pointer-events-none mt-2 md:mt-0" aria-hidden="true">
-                        <span class="text-campBlue font-black text-xs sm:text-sm md:text-2xl leading-none md:mb-1">AGES</span>
-                        <span class="text-campBlue font-black text-3xl sm:text-4xl md:text-6xl leading-none">7-11</span>
-                    </div>
-
-                </div>
+                <!-- Strict Hierarchy: Sole H1 Tag -->
+                <h1 id="hero-title" class="text-[14vw] sm:text-[12vw] md:text-[9vw] lg:text-[9rem] xl:text-[11.5rem] font-slab font-black text-gray-900 mb-4 md:mb-6 leading-[1] md:leading-[0.9] tracking-tighter break-words">
+                    <span class="block">Become an</span>
+                    <span class="block bg-gradient-to-r from-campBlue to-campGreen text-gradient pb-2 lg:pb-4">AI Explorer!</span>
+                </h1>
 
                 <!-- Yard Sign Pill Style for Time Range -->
-                <div class="flex justify-start md:justify-center mb-6 md:mb-8">
-                    <div class="inline-flex items-center gap-2 md:gap-3 bg-white px-5 py-2.5 md:px-10 md:py-4 rounded-[2.5rem] shadow-xl text-campBlue font-black text-sm sm:text-lg md:text-2xl tracking-wide border-2 border-gray-100 mt-2 md:mt-0">
+                <div class="flex justify-center mb-6 md:mb-8">
+                    <div class="inline-flex items-center gap-2 md:gap-3 bg-white px-5 py-2.5 md:px-10 md:py-4 rounded-[2.5rem] shadow-xl text-campBlue font-black text-sm sm:text-lg md:text-2xl tracking-wide border-2 border-gray-100">
                         <i data-lucide="calendar" aria-hidden="true" class="w-4 h-4 md:w-7 md:h-7"></i>
                         Mon-Fri, 9am - 4pm
                     </div>
                 </div>
                 
                 <!-- Definitional Extraction Node (Shortened for faster scrolling) -->
-                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 md:mb-16 px-2 text-left md:text-center">
+                <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 md:mb-16 px-2">
                     <strong>BrAIn Camp</strong> combines incredible educational value with non-stop summer fun to create the ultimate tech adventure!
                 </p>
                 
+            </div>
+        </section>
+
+        <!-- Student Showcase Gallery Section -->
+        <section id="showcase" class="relative bg-gray-900 py-12 md:py-24 border-y-8 border-campBlue overflow-hidden" aria-labelledby="showcase-title">
+            
+            <!-- Relocated Yard Sign Circular Sticker -->
+            <div class="absolute top-6 right-4 sm:top-10 sm:right-10 md:top-16 md:right-16 lg:right-32 w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 bg-white rounded-full border-[5px] md:border-[10px] border-campGreen flex flex-col items-center justify-center transform rotate-12 shadow-2xl z-10 pointer-events-none" aria-hidden="true">
+                <span class="text-campBlue font-black text-xs sm:text-sm md:text-2xl leading-none md:mb-1">AGES</span>
+                <span class="text-campBlue font-black text-3xl sm:text-4xl md:text-6xl leading-none">7-11</span>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-16 gap-6">
+                    <!-- Added padding-right on mobile to ensure text doesn't hide behind the sticker -->
+                    <div class="text-left max-w-2xl pr-24 sm:pr-32 md:pr-0">
+                        <h2 id="showcase-title" class="text-4xl sm:text-6xl lg:text-7xl font-slab font-black text-white uppercase tracking-wide leading-tight mb-4">
+                            Camper <span class="text-campGreen">Creations</span>
+                        </h2>
+                        <p class="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
+                            Every day, campers use their new AI powers to build mind-blowing digital art, songs, and stories right from their smartphones.
+                        </p>
+                    </div>
+                    
+                    <!-- Swipe Hint for Mobile -->
+                    <div class="md:hidden flex items-center justify-start text-sm text-campGreen font-medium animate-pulse pb-2" aria-hidden="true">
+                        Swipe to view gallery <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </div>
+                </div>
+
+                <!-- Desktop Staggered Grid (3 Columns) & Mobile Carousel -->
+                <div class="carousel-container flex overflow-x-auto pb-10 -mx-4 px-[7.5vw] md:mx-auto md:px-0 md:grid md:grid-cols-3 gap-6 lg:gap-10 hide-scrollbar items-center max-w-5xl" role="region" aria-label="Student showcase gallery">
+                    
+                    <!-- Photo 1 -->
+                    <div class="carousel-item relative rounded-3xl overflow-hidden shadow-2xl w-[75vw] max-w-[320px] shrink-0 md:w-full md:max-w-none aspect-[3/4] border border-gray-700 group">
+                        <img src="https://raw.githubusercontent.com/BrAIn-Camp/BrAIn-Camp/refs/heads/main/braincamper%201.png" alt="Camper showing off their AI creation on a smartphone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+
+                    <!-- Photo 2 -->
+                    <div class="carousel-item relative rounded-3xl overflow-hidden shadow-2xl w-[75vw] max-w-[320px] shrink-0 md:w-full md:max-w-none aspect-[3/4] border border-gray-700 group">
+                        <img src="https://raw.githubusercontent.com/BrAIn-Camp/BrAIn-Camp/refs/heads/main/braincamper%202.png" alt="Camper proudly displaying their AI project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+
+                    <!-- Photo 3 -->
+                    <div class="carousel-item relative rounded-3xl overflow-hidden shadow-2xl w-[75vw] max-w-[320px] shrink-0 md:w-full md:max-w-none aspect-[3/4] border border-gray-700 group">
+                        <img src="https://raw.githubusercontent.com/BrAIn-Camp/BrAIn-Camp/refs/heads/main/braincamper10.png" alt="Camper smiling while holding up their AI creation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+
+                </div>
             </div>
         </section>
 
